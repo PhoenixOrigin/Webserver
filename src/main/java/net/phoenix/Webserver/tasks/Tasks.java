@@ -10,7 +10,7 @@ public class Tasks {
 
     @Scheduled(fixedRate = 60000)
     public static void recordWynnPlaytime() {
-        WynncraftPlaytime.recordPlaytime();
+        //WynncraftPlaytime.recordPlaytime();
     }
 
     @Scheduled(fixedRate = 300000)
