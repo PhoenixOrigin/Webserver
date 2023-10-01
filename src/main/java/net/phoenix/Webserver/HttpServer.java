@@ -10,11 +10,8 @@ import org.springframework.stereotype.Component;
 public class HttpServer {
     @Bean
     public ServletWebServerFactory servletContainer() {
-        Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-        connector.setPort(443);
-
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-        tomcat.addAdditionalTomcatConnectors(connector);
+        tomcat.setPort(8443);
         return tomcat;
     }
 }
