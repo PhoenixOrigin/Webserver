@@ -21,7 +21,7 @@ public class HypixelController {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public String handleMissingParams(MissingServletRequestParameterException ex) {
-        return "error.html";
+        return "{\"success\": false}";
     }
 }
 
