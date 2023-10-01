@@ -386,16 +386,26 @@ main {
     color: #8eb0b4 !important;
 }
 
+/* Remove the existing margin-top for .animated-img */
+/* Remove the existing margin-top for .animated-img */
+.animated-img {
+    max-height: 500px;
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+/* Add a new CSS class to the container to use Flexbox */
 .animated-img-container {
     float: right;
     width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
-.animated-img {
-    max-height: 500px;
-    margin-top: 450px; /* Adjust this value as needed */
-    animation: floatUpDown 4s ease-in-out infinite;
-}
+
 
 @keyframes floatUpDown {
     0%, 100% {
