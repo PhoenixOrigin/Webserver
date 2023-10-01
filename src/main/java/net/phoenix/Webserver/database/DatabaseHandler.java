@@ -18,7 +18,7 @@ public class DatabaseHandler {
             return;
         }
         try {
-            wynncraft_database = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + DatabaseInfo.wynn_db_name, DatabaseInfo.wynn_db_name, DatabaseInfo.wynn_db_pwd);
+            wynncraft_database = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + DatabaseInfo.wynn_db_name, DatabaseInfo.wynn_db_usrname, DatabaseInfo.wynn_db_pwd);
             fixWynnDb();
         } catch (SQLException e) {
             throw new RuntimeException(e);
