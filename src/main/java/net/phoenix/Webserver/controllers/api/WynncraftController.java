@@ -2,10 +2,8 @@ package net.phoenix.Webserver.controllers.api;
 
 import net.phoenix.Webserver.database.DatabaseHandler;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -23,5 +21,9 @@ public class WynncraftController {
         }
     }
 
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public String handleMissingParams(MissingServletRequestParameterException ex) {
+        return "error.html";
+    }
 }
 
