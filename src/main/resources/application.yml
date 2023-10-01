@@ -1,0 +1,8 @@
+server:
+  port: 443
+  ssl:
+    key-store: /etc/letsencrypt/live/phoenix.is-a.dev/keystore.p12
+    key-store-password: SslPassword
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+    enabled: true

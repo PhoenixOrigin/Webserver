@@ -1,0 +1,141 @@
+@media (max-width: 845px) {
+    :root {
+        --h1: 2.845rem;
+        --h2: 2.45rem;
+        --h3: 1.85rem;
+    }
+}
+
+@media (max-width: 700px) {
+    :root {
+        --h1: 2.545rem;
+    }
+}
+
+@media (max-width: 545px) {
+    :root {
+        --h1: 2.4rem;
+        --text-large: 1.5rem;
+    }
+}
+
+@media (max-width: 485px) {
+    :root {
+        --h1: 2.145rem;
+        --h2: 1.875rem;
+        --h3: 1.6rem;
+        --text-large: 1.345rem;
+    }
+}
+
+@media (max-width: 1375px) {
+    :root {
+        --site-max-width: 1160px;
+    }
+}
+
+@media (max-width: 1275px) {
+    .container {
+        padding-inline: var(--gutter-small);
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding-inline: var(--gutter-medium);
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        padding-inline: var(--gutter-small);
+    }
+}
+
+@media (max-width: 885px) {
+    :root {
+        --gutter-huge: 8rem;
+        --gutter-x-large: 4rem;
+    }
+}
+
+@media (max-width: 1185px) {
+    :root {
+        --radius: 45px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header-text {
+        max-inline-size: 1px;
+    }
+}
+
+@media (max-width: 845px) {
+    .header-text {
+        max-inline-size: 585px;
+    }
+}
+
+@media (max-width: 985px) {
+    .article-boxes {
+        max-inline-size: 685px;
+        margin-inline: auto;
+        justify-content: center;
+        gap: 4%;
+    }
+
+    .article-box:nth-of-type(2),
+    .article-box:nth-of-type(3) {
+        flex-basis: 48%;
+    }
+
+    .article-box:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .article-box:nth-child(2),
+    .article-box:nth-child(3),
+    .article-box:last-child {
+        flex-basis: 100%;
+    }
+
+    .article-box:not(:last-child) {
+        margin-block-end: var(--gutter-x-small);
+    }
+
+    .article-box:last-child {
+        display: block;
+    }
+}
+
+@media (max-width: 875px) {
+    .footer-content {
+        flex-direction: column-reverse;
+        gap: var(--gutter-small);
+    }
+
+    .footer-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 645px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .animated-img-container {
+        display: none;
+    }
+}
