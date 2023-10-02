@@ -15,7 +15,9 @@ public class WynncraftHandler {
 
     public static List<String> onlinePlayers() throws IOException {
         //WynncraftEndpoints.SERVER_LIST.consumeLimit();
+        System.out.println("e");
         JsonObject object = JsonParser.parseString(Utilities.queryAPI(WynncraftEndpoints.SERVER_LIST.getUrl())).getAsJsonObject();
+        System.out.println("f");
         //WynncraftEndpoints.SERVER_LIST.releaseLimit();
         List<String> onlinePlayers = new ArrayList<>();
         object.remove("request");
