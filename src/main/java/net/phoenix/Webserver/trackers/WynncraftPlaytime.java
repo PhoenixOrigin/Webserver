@@ -19,8 +19,9 @@ public class WynncraftPlaytime {
         try {
             logger.info("Attempting to log playtime");
             List<String> onlinePlayers = WynncraftHandler.onlinePlayers();
+            System.out.println("e");
             onlinePlayers.forEach((player) -> {
-                logger.debug(player);
+                System.out.println("e");
                 DatabaseHandler.record_playtime(Utilities.toUUID(player));
             });
             logger.info("Recorded playtime for " + onlinePlayers.toString());
