@@ -22,8 +22,11 @@ public class WynncraftHandler {
         List<String> onlinePlayers = new ArrayList<>();
         object.remove("request");
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+            System.out.println("x");
+            System.out.println(entry.getValue().getAsJsonArray());
             onlinePlayers.addAll(entry.getValue().getAsJsonArray().asList().stream().map((JsonElement::getAsString)).toList());
         }
+        System.out.println(onlinePlayers);
         return onlinePlayers;
     }
 
