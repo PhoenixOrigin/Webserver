@@ -37,3 +37,6 @@ out/
 .vscode/
 gradle-wrapper.jar
 gradlew
+
+/src/main/resources/api.properties
+/src/main/resources/database.properties
