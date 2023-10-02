@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 
 public class WynncraftPlaytime {
@@ -22,7 +24,10 @@ public class WynncraftPlaytime {
             });
             logger.info("Recorded playtime for " + onlinePlayers.toString());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.error(sw.toString());
         }
     }
 
