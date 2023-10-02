@@ -5,6 +5,7 @@ import net.phoenix.Webserver.utils.Utilities;
 import java.sql.*;
 import java.time.Instant;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 public class DatabaseHandler {
@@ -19,6 +20,7 @@ public class DatabaseHandler {
         }
         try {
             wynncraft_database = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + DatabaseInfo.wynn_db_name, DatabaseInfo.wynn_db_usrname, DatabaseInfo.wynn_db_pwd);
+            wynncraft_database.setAutoCommit(false);
             fixWynnDb();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -30,13 +32,19 @@ public class DatabaseHandler {
         statement.execute();
     }
 
-    public static void record_playtime(UUID uuid) {
+    public static void record_playtime(List<UUID> uuids) {
+
         try {
             PreparedStatement statement = wynncraft_database.prepareStatement("INSERT INTO playtime (uuid, playtime, timestamp) VALUES (?, ?, ?);");
-            statement.setObject(1, uuid);
-            statement.setInt(2, 1);
-            statement.setTimestamp(3, Timestamp.from(Instant.now()));
-            statement.executeUpdate();
+
+            for(UUID uuid : uuids) {
+                statement.setObject(1, uuid);
+                statement.setInt(2, 1);
+                statement.setTimestamp(3, Timestamp.from(Instant.now()));
+                statement.addBatch();
+            }
+            statement.executeBatch();
+            wynncraft_database.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

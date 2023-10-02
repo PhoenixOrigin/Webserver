@@ -19,12 +19,8 @@ public class WynncraftPlaytime {
         try {
             logger.info("Attempting to log playtime");
             List<String> onlinePlayers = WynncraftHandler.onlinePlayers();
-            System.out.println("e");
-            onlinePlayers.forEach((player) -> {
-                System.out.println("e");
-                DatabaseHandler.record_playtime(Utilities.toUUID(player));
-            });
-            logger.info("Recorded playtime for " + onlinePlayers.toString());
+            onlinePlayers.forEach((player) -> DatabaseHandler.record_playtime(Utilities.toUUID(player)));
+            logger.info("Recorded playtime");
         } catch (IOException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
