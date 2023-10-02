@@ -34,7 +34,7 @@ public class DatabaseHandler {
         try {
             PreparedStatement statement = wynncraft_database.prepareStatement("INSERT INTO playtime (uuid, playtime, timestamp) VALUES (?, ?, ?);");
             statement.setObject(1, uuid);
-            statement.setInt(2, 5);
+            statement.setInt(2, 1);
             statement.setTimestamp(3, Timestamp.from(Instant.now()));
             statement.executeUpdate();
         } catch (SQLException e) {

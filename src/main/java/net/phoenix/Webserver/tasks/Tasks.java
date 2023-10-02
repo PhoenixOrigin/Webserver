@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Tasks {
 
-    @Scheduled(fixedRate = 300000)
+    @Scheduled(fixedRate = 60000)
     public static void recordWynnPlaytime() {
         WynncraftPlaytime.recordPlaytime();
     }
