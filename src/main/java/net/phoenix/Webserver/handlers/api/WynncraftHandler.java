@@ -14,13 +14,12 @@ import java.util.Map;
 public class WynncraftHandler {
 
     public static List<String> onlinePlayers() throws IOException {
-        //WynncraftEndpoints.SERVER_LIST.consumeLimit();
+        WynncraftEndpoints.SERVER_LIST.consumeLimit();
         JsonObject object = JsonParser.parseString(Utilities.queryAPI(WynncraftEndpoints.SERVER_LIST.getUrl())).getAsJsonObject();
-        //WynncraftEndpoints.SERVER_LIST.releaseLimit();
+        WynncraftEndpoints.SERVER_LIST.releaseLimit();
         List<String> onlinePlayers = new ArrayList<>();
         object.remove("request");
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-            System.out.println(entry.getValue().getAsJsonArray());
             onlinePlayers.addAll(entry.getValue().getAsJsonArray().asList().stream().map((JsonElement::getAsString)).toList());
         }
         return onlinePlayers;
