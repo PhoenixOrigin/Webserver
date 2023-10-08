@@ -43,7 +43,7 @@ public class GuildTagTracker {
                 JsonObject object = WynncraftHandler.guildStats(guild);
                 String tag = object.get("prefix").getAsString();
                 json.addProperty(guild, tag);
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
 

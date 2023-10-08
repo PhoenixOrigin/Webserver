@@ -11,16 +11,16 @@ public class NucleusRun {
 
     // Sapphire crystal
     double electron_transmitter;
-    double ftx_3070 = 0;
-    double robotron_reflector = 0;
-    double superlite_motor = 0;
-    double control_switch = 0;
-    double synthetic_heart = 0;
+    double ftx_3070;
+    double robotron_reflector;
+    double superlite_motor;
+    double control_switch;
+    double synthetic_heart;
 
     // Amethyst Crystal
-    double jungle_key = 0;
+    double jungle_key;
 
-    double total_cost = 0;
+    double total_cost;
 
     public NucleusRun(SkyBlockBazaarReply bazaar) {
         // Amber Crystal

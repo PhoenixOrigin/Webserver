@@ -41,7 +41,7 @@ public class Utilities {
         if (Constants.uuidCache.get(player) == null) {
             Map<String, String> headers = new HashMap<>();
             headers.put("user-agent", "phoenix.owo");
-            JsonObject resp = null;
+            JsonObject resp;
             try {
                 resp = JsonParser.parseString(queryAPI("https://playerdb.co/api/player/minecraft/" + player, headers)).getAsJsonObject();
             } catch (IOException e) {
