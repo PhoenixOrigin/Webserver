@@ -1,8 +1,10 @@
 package net.phoenix.Webserver.tasks;
 
-import net.phoenix.Webserver.handlers.api.GuildTagHandler;
 import net.phoenix.Webserver.handlers.api.HypixelHandler;
-import net.phoenix.Webserver.trackers.WynncraftPlaytime;
+import net.phoenix.Webserver.trackers.GuildTagTracker;
+import net.phoenix.Webserver.trackers.WynncraftPlaytimeTracker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +13,13 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class Tasks {
 
+    private static final Logger logger = LoggerFactory.getLogger(Tasks.class);
+
     @Scheduled(fixedRate = 300000)
     public static void recordWynnPlaytime() {
-        WynncraftPlaytime.recordPlaytime();
+        logger.info("Recording Wynncraft playtime");
+        WynncraftPlaytimeTracker.recordPlaytime();
+        logger.info("Recorded Wynncraft playtime");
     }
 
     @Scheduled(fixedRate = 300000)
@@ -22,8 +28,10 @@ public class Tasks {
     }
 
     @Scheduled(timeUnit = TimeUnit.HOURS, fixedRate = 1)
-    public static void updateGuildList(){
-        GuildTagHandler.recordGuild();
+    public static void updateGuildList() {
+        logger.info("Updating guild list");
+        GuildTagTracker.recordGuild();
+        logger.info("Updated guild list");
     }
 
 }

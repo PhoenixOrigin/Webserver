@@ -11,16 +11,14 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
-public class WynncraftPlaytime {
+public class WynncraftPlaytimeTracker {
 
-    private static Logger logger = LoggerFactory.getLogger(WynncraftPlaytime.class);
+    private static final Logger logger = LoggerFactory.getLogger(WynncraftPlaytimeTracker.class);
 
     public static void recordPlaytime() {
         try {
-            logger.info("Attempting to log playtime");
             List<String> onlinePlayers = WynncraftHandler.onlinePlayers();
             DatabaseHandler.record_playtime(onlinePlayers.stream().map(Utilities::toUUID).toList());
-            logger.info("Recorded playtime");
         } catch (IOException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
