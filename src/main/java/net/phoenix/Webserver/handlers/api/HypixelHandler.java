@@ -16,11 +16,13 @@ public class HypixelHandler {
 
     public static HypixelAPI api;
     public static SkyBlockBazaarReply bazaar;
+    public static String api_key;
 
     public HypixelHandler(@Value("${api_key}") String api_key) {
         HypixelHttpClient client = new ApacheHttpClient(UUID.fromString(api_key));
         api = new HypixelAPI(client);
         update_bazaar();
+        HypixelHandler.api_key = api_key;
     }
 
     public static void update_bazaar() {

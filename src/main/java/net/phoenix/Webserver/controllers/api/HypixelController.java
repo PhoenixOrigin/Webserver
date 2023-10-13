@@ -2,6 +2,7 @@ package net.phoenix.Webserver.controllers.api;
 
 import net.phoenix.Webserver.containers.NucleusRun;
 import net.phoenix.Webserver.handlers.api.HypixelHandler;
+import net.phoenix.Webserver.handlers.callables.NickChecker;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,14 @@ public class HypixelController {
             return ResponseEntity.ok(run.toPrettyJson());
         }
         return ResponseEntity.ok(run.toJson());
+    }
+
+    @GetMapping("/nicked")
+    public ResponseEntity<String> nicked(@RequestParam(name = "username", required = false) String username) {
+        boolean nicked = new NickChecker(username).call();
+        return ResponseEntity.ok(String.format("""
+                {"nicked": %b}
+                """, nicked));
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
