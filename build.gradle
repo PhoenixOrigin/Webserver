@@ -14,6 +14,8 @@ java {
 repositories {
     mavenCentral()
     maven { url 'https://repo.hypixel.net/repository/Hypixel/' }
+    maven { url 'https://jitpack.io' }
+
 }
 
 dependencies {
@@ -24,4 +26,6 @@ dependencies {
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.1'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     implementation 'org.java-websocket:Java-WebSocket:1.5.4'
+    implementation("net.dv8tion:JDA:5.0.0-beta.15")
+    implementation files('build/libs/interactionAPI.jar')
 }
