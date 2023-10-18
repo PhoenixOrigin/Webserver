@@ -41,3 +41,4 @@ gradlew
 /src/main/resources/api.properties
 /src/main/resources/database.properties
 tags.json
+!/build/libs/interactionAPI.jar
