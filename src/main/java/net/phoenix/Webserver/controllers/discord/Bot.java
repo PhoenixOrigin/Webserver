@@ -2,8 +2,8 @@ package net.phoenix.Webserver.controllers.discord;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.phoenix.Command;
-import net.phoenix.CommandRegistrar;
+import net.phoenix.Webserver.controllers.discord.api.Command;
+import net.phoenix.Webserver.controllers.discord.api.CommandRegistrar;
 import net.phoenix.Webserver.controllers.websocket.WebsocketServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

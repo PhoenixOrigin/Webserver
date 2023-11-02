@@ -2,6 +2,7 @@ package net.phoenix.Webserver;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.phoenix.Webserver.controllers.discord.Bot;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -13,5 +14,6 @@ public class Constants {
     public static Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
     public static Gson GSON = new Gson();
     public static Map<String, UUID> uuidCache = new HashMap<>();
+    public static Bot bot = new Bot();
 
 }

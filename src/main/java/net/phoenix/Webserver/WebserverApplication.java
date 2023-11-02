@@ -13,6 +13,7 @@ public class WebserverApplication {
         SpringApplication application = new SpringApplication(WebserverApplication.class);
         application.run(args);
         DatabaseHandler.init();
+        Constants.bot.init();
     }
 
 }
