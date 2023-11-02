@@ -1,14 +1,11 @@
 package net.phoenix.Webserver.tasks;
 
 import net.phoenix.Webserver.handlers.api.HypixelHandler;
-import net.phoenix.Webserver.trackers.GuildTagTracker;
 import net.phoenix.Webserver.trackers.WynncraftPlaytimeTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.TimeUnit;
 
 @Component
 public class Tasks {
@@ -25,13 +22,6 @@ public class Tasks {
     @Scheduled(fixedRate = 300000)
     public static void updateBazaar() {
         HypixelHandler.update_bazaar();
-    }
-
-    @Scheduled(timeUnit = TimeUnit.HOURS, fixedRate = 1)
-    public static void updateGuildList() {
-        logger.info("Updating guild list");
-        GuildTagTracker.recordGuild();
-        logger.info("Updated guild list");
     }
 
 }
